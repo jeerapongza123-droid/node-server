@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 // ---------- MQTT CONFIG ----------
 const MQTT_BROKER = "mqtt://broker.hivemq.com"; // broker สาธารณะ
 const MQTT_TOPIC_SENSOR = "/Status"; // ESP32 ส่งสถานะ
-const MQTT_TOPIC_COMMAND = "siv";    // Node.js ส่งคำสั่ง
+const MQTT_TOPIC_COMMAND = "espkuy";    // Node.js ส่งคำสั่ง
 
 console.log("Connecting to MQTT Broker:", MQTT_BROKER);
 
@@ -76,3 +76,4 @@ app.post("/api/command", (req, res) => {
 // ---------- SERVER RUN ----------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
