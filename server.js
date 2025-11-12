@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 // ---------- MQTT CONFIG ----------
 const MQTT_BROKER = "mqtt://broker.hivemq.com"; // ใช้ broker สาธารณะ
-const MQTT_TOPIC_SENSOR = "esp32/sensor";
-const MQTT_TOPIC_COMMAND = "esp32/command";
+const MQTT_TOPIC_SENSOR = "/Status";
+const MQTT_TOPIC_COMMAND = "espkuy";
 
 console.log("Connecting to MQTT Broker:", MQTT_BROKER);
 
@@ -47,7 +47,7 @@ mqttClient.on("message", (topic, message) => {
 
 // ---------- REST API ----------
 app.get("/", (req, res) => {
-  res.send("🚀 MQTT + Node.js Server is running!");
+  res.send("🚀 MQTT + Node.js Server is running! OK");
 });
 
 // ดึงค่าล่าสุดจาก ESP32 (ผ่าน MQTT)
@@ -66,3 +66,4 @@ app.post("/api/command", (req, res) => {
 // ---------- SERVER RUN ----------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
