@@ -14,7 +14,7 @@ const MQTT_BROKER = "mqtt://broker.hivemq.com"; // broker สาธารณะ
 const MQTT_TOPIC_STATUS = "/Status";   // ESP32 ส่งสถานะ (1/0)
 const MQTT_TOPIC_TEMP = "tempjee";     // ESP32 ส่งอุณหภูมิ
 const MQTT_TOPIC_HUMI = "humijee";     // ESP32 ส่งความชื้น
-const MQTT_TOPIC_COMMAND = "espkuy";   // Node.js ส่งคำสั่ง
+const MQTT_TOPIC_COMMAND = "/esp_c";   // Node.js ส่งคำสั่ง
 
 console.log("Connecting to MQTT Broker:", MQTT_BROKER);
 const mqttClient = mqtt.connect(MQTT_BROKER);
@@ -90,3 +90,4 @@ app.post("/api/command", (req, res) => {
 // ---------- SERVER RUN ----------
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
